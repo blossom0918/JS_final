@@ -12,15 +12,17 @@ let db = admin.firestore();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var docRef = db.collection("product");
-  var productList = [];
-  docRef.get().then(function(querySnapshot){
-    querySnapshot.forEach(function(doc){
-      console.log(doc.data());
-      productList.push(doc.data());
-    });
-    res.render('index', { title: 'Express', data: productList});
-  });
+  res.render('index', { title: 'Express'});
+});
+
+/* GET detail page. */
+router.get('/detail', function(req, res, next) {
+  res.render('detail', { title: 'Detail'});
+});
+
+/* GET favorite page. */
+router.get('/favorite', function(req, res, next) {
+  res.render('favorite', { title: 'Favorite'});
 });
 
 module.exports = router;
