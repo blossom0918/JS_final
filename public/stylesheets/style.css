@@ -60,6 +60,10 @@ h1{
   float: left;
 }
 
+h2{
+  font-size: 25px;
+}
+
 .menu{
   float: right;
   color: rgb(54, 31, 0);

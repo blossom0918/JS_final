@@ -25,4 +25,14 @@ router.get('/favorite', function(req, res, next) {
   res.render('favorite', { title: 'Favorite'});
 });
 
+/* GET login page. */
+router.get('/login', function(req, res, next) {
+  res.render('login', { title: 'Login'});
+});
+
+/* GET signup page. */
+router.get('/signup', function(req, res, next) {
+  res.render('signup', { title: 'Signup'});
+});
+
 module.exports = router;
