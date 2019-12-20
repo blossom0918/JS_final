@@ -22,17 +22,17 @@ router.get('/detail', function(req, res, next) {
 
 /* GET favorite page. */
 router.get('/favorite', function(req, res, next) {
-  res.render('favorite', { title: 'Favorite'});
+  res.render('favorite', { title: '我的收藏'});
 });
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login'});
+  res.render('login', { title: '登入'});
 });
 
 /* GET signup page. */
 router.get('/signup', function(req, res, next) {
-  res.render('signup', { title: 'Signup'});
+  res.render('signup', { title: '註冊'});
 });
 
 module.exports = router;
