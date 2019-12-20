@@ -42,23 +42,41 @@ table {
 	border-spacing: 0;
 }
 
+::-webkit-scrollbar{
+  width: 7px;
+  height: 16px;
+  background-color: aliceblue;
+}
+
+::-webkit-scrollbar-track{
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius:10px;
+  background-color: dimgray;
+}
+
 .clear{
 	clear: both;
 }
 
 body {
-  width: 1200px;
   margin: 0 auto;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Microsoft JhengHei UI", sans-serif;
 }
 
 a {
-  color: black;
+  color: dimgray;
+  text-decoration: none;
 }
 
 h1{
   font-size: 40px;
   float: left;
+  margin-left: 10px;
+  color: rgb(54, 31, 0);
 }
 
 h2{
@@ -69,27 +87,31 @@ h2{
 .header{
   position:fixed;
   padding: 5px;
-  width: 1200px;
-  background-color: #fff;
+  width: 100%;
+  background-color: WhiteSmoke;
+  /* 顏色待改 */
 }
 
 .menu{
   float: right;
-  color: rgb(54, 31, 0);
+  margin-right: 10px;
 }
 
 .menu li{
   float: left;
-  border-right: 1px rgb(221, 221, 221) solid;
 }
 
 .menu li a{
   text-align: center;
   display: block;
-  width: 65px;
-  padding: 15px;
+  width: 75px;
   text-decoration :none;
-  color: rgb(100, 100, 100);
+  color: rgb(54, 31, 0);
+  border-right: 1px 1px rgb(54, 31, 0, 0.3) solid;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .menu li a:hover{
@@ -102,7 +124,7 @@ h2{
 }
 
 .productType{
-  width: 220px;
+  width: 20%;
   line-height: 20px;
   float: left;
 }
@@ -125,7 +147,7 @@ h2{
 }
 
 .productList{
-  width: 960px;
+  width: 80%;
   float: left;
 }
 
@@ -167,6 +189,7 @@ h2{
 }
 
 .login input[type="text"]{
+  outline: none;
   margin: 10px;
   width: 200px;
   height: 15px;
@@ -176,6 +199,7 @@ h2{
 }
 
 .login input[type="submit"]{
+  outline: none;
   margin: 10px;
   width: 100px;
   height: 30px;
@@ -195,6 +219,7 @@ h2{
 }
 
 .signup input[type="text"]{
+  outline: none;
   margin: 10px;
   width: 200px;
   height: 15px;
@@ -204,6 +229,7 @@ h2{
 }
 
 .signup input[type="submit"]{
+  outline: none;
   margin: 10px;
   width: 100px;
   height: 30px;
