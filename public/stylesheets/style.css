@@ -94,7 +94,9 @@ h2{
 
 .menu{
   float: right;
+  margin-top: 12.7px;
   margin-right: 10px;
+  line-height: 50px;
 }
 
 .menu li{
@@ -104,10 +106,9 @@ h2{
 .menu li a{
   text-align: center;
   display: block;
-  width: 75px;
   text-decoration :none;
   color: rgb(54, 31, 0);
-  border-right: 1px 1px rgb(54, 31, 0, 0.3) solid;
+  border-right: 1px rgb(54, 31, 0, 0.3) solid;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 2px;
@@ -127,6 +128,7 @@ h2{
   width: 20%;
   line-height: 20px;
   float: left;
+  margin-top: 30px;
 }
 
 .productType li{
@@ -154,7 +156,7 @@ h2{
 .productList li{
   float: left;
   text-align: center;
-  margin-right: 20px;
+  margin: 30px 20px 10px 20px;
 }
 
 .productList li p{
