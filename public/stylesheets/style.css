@@ -65,10 +65,11 @@ table {
 body {
   margin: 0 auto;
   font: 16px "Microsoft JhengHei UI", sans-serif;
+  color: rgb(54, 31, 0);
 }
 
 a {
-  color: dimgray;
+  color: rgb(54, 31, 0);
   text-decoration: none;
 }
 
@@ -165,24 +166,60 @@ h2{
 }
 
 .productDetail{
-  width: 960px;
+  width: 80%;
   float: left;
+  margin-top: 30px;
 }
 
 .productImg{
   float: left;
+  width: 45%;
 }
 
 .productInfo{
   float: left;
-  margin-left: 50px;
+  width: 45%;
+  margin-top: 80px;
+}
+
+.productName{
+  font-size: 20px;
+  text-align: center;
+  color: rgb(54, 31, 0);
 }
 
 .productPrice{
-  margin-top: 10px;
-  color: rgb(45, 115, 79);
-  font-size: 40px;
+  margin-top: 20px;
+  color: lightpink;
+  font-size: 30px;
   text-align: center;
+}
+
+.addFavorite{
+  text-align: end;
+  outline: none;
+  width: 120px;
+  height: 40px;
+  background-color: transparent;
+  border: 0px;
+  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-size: 15px;
+  line-height: 40px;
+  float: right;
+  color: rgb(54, 31, 0);
+}
+
+/* .addFavoriteHeart{
+  outline: none;
+  background-color: transparent;
+  border: 0px;
+  margin-left: -45px;
+} */
+
+.favoriteImg{
+  width: 35px;
+  line-height: 40px;
+  float: right;
 }
 
 .login{
@@ -192,24 +229,46 @@ h2{
   margin-top: 30px;
 }
 
+form{
+  font-size: 20px;
+  margin-top: 30px;
+  color: rgb(54, 31, 0);
+}
+
 .login input[type="text"]{
   outline: none;
-  margin: 10px;
+  margin: 10px 10px 20px 10px;
   width: 200px;
   height: 15px;
   padding: 10px;
   border-radius: 5px;
   border: 1px rgb(150, 150, 150) solid;
+  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-size: 18px;
+}
+
+.login input[type="password"]{
+  outline: none;
+  margin: 10px 10px 20px 10px;
+  width: 200px;
+  height: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px rgb(150, 150, 150) solid;
+  font-size: 18px;
 }
 
 .login input[type="submit"]{
   outline: none;
-  margin: 10px;
+  margin: 10px 10px 20px 10px;
   width: 100px;
   height: 30px;
   border-radius: 5px;
   background-color: rgba(179, 179, 179, 0.322);
   border: 0;
+  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-size: 18px;
+  color: rgb(54, 31, 0);
 }
 
 .login input[type="submit"]:hover{
@@ -225,22 +284,38 @@ h2{
 
 .signup input[type="text"]{
   outline: none;
-  margin: 10px;
+  margin: 10px 10px 20px 10px;
   width: 200px;
   height: 15px;
   padding: 10px;
   border-radius: 5px;
   border: 1px rgb(150, 150, 150) solid;
+  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-size: 18px;
+}
+
+.signup input[type="password"]{
+  outline: none;
+  margin: 10px 10px 20px 10px;
+  width: 200px;
+  height: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px rgb(150, 150, 150) solid;
+  font-size: 18px;
 }
 
 .signup input[type="submit"]{
   outline: none;
-  margin: 10px;
+  margin: 10px 10px 20px 10px;
   width: 100px;
   height: 30px;
   border-radius: 5px;
   background-color: rgba(179, 179, 179, 0.322);
   border: 0;
+  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-size: 18px;
+  color: rgb(54, 31, 0);
 }
 
 .signup input[type="submit"]:hover{
