@@ -12,17 +12,17 @@ let db = admin.firestore();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express'});
+  res.render('index', { title: '首頁'});
 });
 
 /* GET detail page. */
 router.get('/detail', function(req, res, next) {
-  res.render('detail', { title: 'Detail'});
+  res.render('detail', { title: '商品明細'});
 });
 
 /* GET favorite page. */
 router.get('/favorite', function(req, res, next) {
-  res.render('favorite', { title: '我的收藏'});
+  res.render('favorite', { title: '我的最愛'});
 });
 
 /* GET login page. */
