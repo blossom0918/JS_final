@@ -155,6 +155,9 @@ h2{
 
 .productType li{
   margin-bottom: 10px;
+  height: 35px;
+  display: block;
+  font-size: 18px;
 }
 
 .productType li a{
@@ -168,6 +171,12 @@ h2{
 
 .productType li a:hover{
   background-color: rgba(214, 214, 214, 0.308);
+}
+
+.productType li img{
+  height: 18px;
+  vertical-align: middle;
+  margin-left: 3px;
 }
 
 .productList{
@@ -339,7 +348,7 @@ form{
 }
 
 .favoriteList{
-  width: 60%;
+  width: 745px;
   margin: 0 auto;
   text-align: center;
   font-size: 14px;
