@@ -202,7 +202,7 @@ h2{
 .productList li{
   float: left;
   text-align: center;
-  margin: 30px 20px 10px 20px;
+  margin: 0px 20px 10px 20px;
 }
 
 .productList li p{
