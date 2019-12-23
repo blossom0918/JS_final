@@ -7,8 +7,6 @@
   <body>
     <div class="header">
       <a href="/"><h1>Lativ</h1></a>
-      <input type="text" placeholder="請輸入關鍵字">
-      <img class="searchImg" src="/img/search.png" style="width:23px;">
       <ul class="menu">
         <li><a href="/"><img src="/img/home.png" style="width:15px;">
           首頁</a></li>
@@ -19,9 +17,16 @@
         <li><a href="/favorite" style="border-right: none;"><img src="/img/favorite.png" style="width:15px;">
           我的最愛</a></li> 
       </ul>
+      <img class="searchImg" src="/img/search.png" style="width:23px;">
+      <input type="text" placeholder="請輸入關鍵字">      
     </div>
     <div class="clear"></div>
     <div class="content">
+      <div class="sortButton">
+        <button>價格排序高至低</button>
+        <button>價格排序低至高</button>
+        <button>商品名稱排序</button>
+      </div>     
       <ul class="productType">
         <li><a href="#">上衣<img src="/img/shirt.png"></a></li>
         <li><a href="#">褲子<img src="/img/pants.png"></a></li>
