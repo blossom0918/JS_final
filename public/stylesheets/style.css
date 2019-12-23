@@ -248,7 +248,6 @@ h2{
 
 .login{
   width: 100%;
-  float: left;
   text-align: center;
   margin-top: 30px;
 }
@@ -301,7 +300,6 @@ form{
 
 .signup{
   width: 100%;
-  float: left;
   text-align: center;
   margin-top: 30px;
 }
@@ -368,4 +366,62 @@ form{
   margin-left: -30px;
   margin-right: 10px;
   margin-bottom: 140px;
+}
+
+.manage{
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.manage input[type="text"]{
+  outline: none;
+  margin: 10px 10px 20px 10px;
+  width: 200px;
+  height: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px rgb(150, 150, 150) solid;
+  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-size: 18px;
+}
+
+.manage input[type="password"]{
+  outline: none;
+  margin: 10px 10px 20px 10px;
+  width: 200px;
+  height: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px rgb(150, 150, 150) solid;
+  font-size: 18px;
+}
+
+select{
+  outline: none;
+  margin: 10px 10px 20px 6px;
+  width: 220px;
+  height: 35px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px rgb(150, 150, 150) solid;
+  font-size: 18px;
+}
+
+.manage input[type="submit"]{
+  outline: none;
+  margin: 10px 10px 20px 10px;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgba(179, 179, 179, 0.322);
+  border: 0;
+  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-size: 18px;
+  color: rgb(54, 31, 0);
+}
+
+.manage input[type="submit"]:hover{
+  background-color: rgba(180, 180, 180, 0.438);
 }

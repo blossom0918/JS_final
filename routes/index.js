@@ -35,4 +35,9 @@ router.get('/signup', function(req, res, next) {
   res.render('signup', { title: '註冊'});
 });
 
+/* GET manage page. */
+router.get('/manage', function(req, res, next) {
+  res.render('manage', { title: '新增商品'});
+});
+
 module.exports = router;

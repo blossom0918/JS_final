@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="header">
+      <a href="/"><h1>Lativ</h1></a>
+      <ul class="menu">
+        <li><a href="/"><img src="/img/home.png" style="width:15px;">
+        首頁</a></li>
+        <li><a href="/login"><img src="/img/login.png" style="width:15px;">
+        會員登入</a></li>
+        <li><a href="/manage"><img src="/img/manage.png" style="width:15px;">
+        新增商品</a></li> 
+        <li><a href="/favorite" style="border-right: none;"><img src="/img/favorite.png" style="width:15px;">
+        我的最愛</a></li> 
+      </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="content">
+        <div class="manage">
+            <h2><%= title %></h2>
+            <form action="">
+                商品名稱:<input type="text" name="name"><br>
+                商品價格:<input type="text" name="price"><br>           
+                商品類別:
+                <select name="type">
+                    <option value="0" selected="true">請選擇</option>
+                    <option value="1">上衣</option>
+                    <option value="2">褲子</option>
+                    <option value="3">裙子</option>
+                    <option value="4">外套</option>
+                    <option value="5">鞋子</option>
+                </select><br>   
+                商品圖片:<input type="text" name="img"><br>   
+                <input type="submit" value="新增"><br>
+            </form>
+        </div>
+    </div>
+  </body>
+</html>
