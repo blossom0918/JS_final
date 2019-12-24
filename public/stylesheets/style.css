@@ -96,7 +96,6 @@ h2{
 }
 
 .header input[type="text"]{
-  float: right;
   position: absolute;
   left: 50%;
   outline: none;
@@ -162,7 +161,7 @@ h2{
   border: 0;
   font-family: "Microsoft JhengHei UI", sans-serif;
   font-size: 14px;
-  color: rgb(112, 68, 9);
+  color: rgb(117, 90, 56, 0.8);
 }
 
 .productType{
