@@ -22,19 +22,22 @@
     <div class="content">
         <div class="manage">
             <h2><%= title %></h2>
-            <form action="">
+            <form action="/manage" method="POST">
                 商品名稱:<input type="text" name="name"><br>
                 商品價格:<input type="text" name="price"><br>           
                 商品類別:
                 <select name="type">
                     <option value="0" selected="true">請選擇</option>
-                    <option value="1">上衣</option>
-                    <option value="2">褲子</option>
-                    <option value="3">裙子</option>
-                    <option value="4">外套</option>
-                    <option value="5">鞋子</option>
+                    <option value="shirt">上衣</option>
+                    <option value="pants">褲子</option>
+                    <option value="skirt">裙子</option>
+                    <option value="coat">外套</option>
+                    <option value="shoes">鞋子</option>
                 </select><br>   
-                商品圖片:<input type="text" name="img"><br>   
+                商品圖片1(220*284):  
+                <input type="text" name="image" style="width: 400px;"><br>   
+                商品圖片2(500*500):
+                <input type="text" name="image2" style="width: 400px;"><br> 
                 <input type="submit" value="新增"><br>
             </form>
         </div>

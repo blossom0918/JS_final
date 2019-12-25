@@ -35,55 +35,15 @@
         <li><a href="#">鞋子<img src="/img/shoes.png"></a></li>
       </ul>
       <ul class="productList">
-        <li>
-          <a href="/detail"><img src="https://s1.lativ.com.tw/i/43807/43807_M_100_n.jpg"></a>
-          <img class="addFavoriteHeart" src="/img/heart1.png" style="width: 25px;">
-          <p>長袖寬版針織衫-女</p>
-          <p>NT$590</p>
-          <!-- 按下後變heart2.png --> 
-        </li>
-        <li>
-          <a href="/detail"><img src="https://s1.lativ.com.tw/i/43807/43807_M_100_n.jpg"></a>
-          <img class="addFavoriteHeart" src="/img/heart1.png" style="width: 25px;">
-          <p>長袖寬版針織衫-女</p>
-          <p>NT$590</p>
-        </li>
-        <li>
-          <a href="/detail"><img src="https://s1.lativ.com.tw/i/43807/43807_M_100_n.jpg"></a>
-          <img class="addFavoriteHeart" src="/img/heart1.png" style="width: 25px;">
-          <p>長袖寬版針織衫-女</p>
-          <p>NT$590</p>
-        </li>
-        <li>
-          <a href="/detail"><img src="https://s1.lativ.com.tw/i/43807/43807_M_100_n.jpg"></a>
-          <img class="addFavoriteHeart" src="/img/heart1.png" style="width: 25px;">
-          <p>長袖寬版針織衫-女</p>
-          <p>NT$590</p>
-        </li>
-        <li>
-          <a href="/detail"><img src="https://s1.lativ.com.tw/i/43807/43807_M_100_n.jpg"></a>
-          <img class="addFavoriteHeart" src="/img/heart1.png" style="width: 25px;">
-          <p>長袖寬版針織衫-女</p>
-          <p>NT$590</p>
-        </li>
-        <li>
-          <a href="/detail"><img src="https://s1.lativ.com.tw/i/43807/43807_M_100_n.jpg"></a>
-          <img class="addFavoriteHeart" src="/img/heart1.png" style="width: 25px;">
-          <p>長袖寬版針織衫-女</p>
-          <p>NT$590</p>
-        </li>
-        <li>
-          <a href="/detail"><img src="https://s1.lativ.com.tw/i/43807/43807_M_100_n.jpg"></a>
-          <img class="addFavoriteHeart" src="/img/heart1.png" style="width: 25px;">
-          <p>長袖寬版針織衫-女</p>
-          <p>NT$590</p>
-        </li>
-        <li>
-          <a href="/detail"><img src="https://s1.lativ.com.tw/i/43807/43807_M_100_n.jpg"></a>
-          <img class="addFavoriteHeart" src="/img/heart1.png" style="width: 25px;">
-          <p>長袖寬版針織衫-女</p>
-          <p>NT$590</p>
-        </li>
+        <% for(var i = 0; i < data.length; i++){ %>
+          <li>
+            <a href="/detail?id=<%- id[i] %>"><img src="<%- data[i].image %>"></a>
+            <img class="addFavoriteHeart" src="/img/heart1.png" style="width: 25px;">
+            <p><%- data[i].name %></p>
+            <p>NT$<%- data[i].price %></p>
+            <!-- 按下後變heart2.png --> 
+          </li>
+        <% } %>
       </ul>
     </div>
     <div class="clear"></div>
