@@ -25,6 +25,22 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/result', function(req, res, next) {
+  var docRef = db.collection("product");
+  var productList = [];
+  var productId = [];
+  console.log(req.query.type);
+  docRef.where("type","==",req.query.type).get().then(function (querySnapshot) {
+    querySnapshot.forEach(function (doc) {
+      productList.push(doc.data());
+      productId.push(doc.id);
+    });
+    console.log(productList);
+    res.render('index', { title: '首頁', data: productList, id: productId });
+  })
+});
+
+
 /* GET detail page. */
 router.get('/detail', function(req, res, next) {
   var docRef = db.collection("product").doc(req.query.id);
