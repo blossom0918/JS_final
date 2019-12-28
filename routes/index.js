@@ -91,7 +91,30 @@ router.get('/favorite', function(req, res, next) {
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: '登入'});
+  var memberRef = db.collection('member');
+  res.render('login', {
+    title: '登入',
+    memberId: req.session.memberId
+  });
+});
+
+router.post('/login', function(req, res, next) {
+  var memberRef = db.collection("member");
+  if(req.body.id != "" && req.body.password != ""){
+    memberRef.where('id', '==', req.body.id).get().then(function (querySnapshot) { 
+      querySnapshot.forEach(function (doc) {
+        if(doc.data().password == req.body.password){
+          req.session.memberId = doc.id;
+          res.redirect('/')
+        }else{
+          console.log("密碼輸入錯誤，兩秒後重新載入登入畫面");
+          setTimeout(function () {res.redirect("/login")}, 2000);
+        }
+      });
+    });             
+  }else{
+    console.log("還有欄位尚未填寫喔！");
+  } 
 });
 
 /* GET signup page. */
@@ -102,28 +125,34 @@ router.get('/signup', function(req, res, next) {
 router.post('/signup', function(req, res, next) {
   var memberRef = db.collection("member");
   var emailRegxp = /[\w-]+@([\w-]+\.)+[\w-]+/;
+  let flag = 0;
 
   if(req.body.name != "" && req.body.id != "" && req.body.email != "" && req.body.password != ""){
     memberRef.get().then(function (querySnapshot) { 
       querySnapshot.forEach(function (doc) {
         if(doc.data().id == req.body.id){
           console.log("此帳號已被註冊");
-          setTimeout(function () {res.redirect("/signup")}, 3000);
+          setTimeout(function () {res.redirect("/signup")}, 2000);
+          flag = 1;
         }else if(doc.data().email == req.body.email){
           console.log("此信箱已被註冊");
-          setTimeout(function () {res.redirect("/signup")}, 3000);
+          setTimeout(function () {res.redirect("/signup")}, 2000);
+          flag = 1;
         }else if(emailRegxp.test(req.body.email) != true){
           console.log("請輸入正確信箱格式");
-          setTimeout(function () {res.redirect("/signup")}, 3000);
-        }else{
+          setTimeout(function () {res.redirect("/signup")}, 2000);
+          flag = 1;
+        }
+
+        if(flag == 0){
           memberRef.add({
             "name": req.body.name,
             "id": req.body.id,
             "email": req.body.email,
             "password": req.body.password
           }).then(function(){ 
-            console.log("註冊成功！三秒後跳轉登入畫面");
-            setTimeout(function () {res.redirect("/login")}, 3000);
+            console.log("註冊成功！兩秒後跳轉登入畫面");
+            setTimeout(function () {res.redirect("/login")}, 2000);
           }).catch(function (error) {
             console.error("註冊失敗原因： ", error);
           });
