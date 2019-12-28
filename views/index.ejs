@@ -17,15 +17,19 @@
         <li><a href="/favorite" style="border-right: none;"><img src="/img/favorite.png" style="width:15px;">
           我的最愛</a></li> 
       </ul>      
-      <input type="text" placeholder="請輸入關鍵字">     
-      <img class="searchImg" src="/img/search.png" style="width:23px;"> 
+      <form action="/result" method="POST">
+        <input type="text" placeholder="請輸入關鍵字" name="keyword">
+        <button type="submit">
+          <img src="/img/search.png" width="23px" alt="submit" />
+        </button>
+      </form>
     </div>
     <div class="clear"></div>
     <div class="content">
       <div class="sortButton">
-        <button>價格排序高至低</button>
-        <button>價格排序低至高</button>
-        <button>商品名稱排序</button>
+        <a href="/result?order=price&d=desc">價格排序高至低</a>
+        <a href="/result?order=price&d=asc">價格排序低至高</a>
+        <a href="/result?order=name&d=asc">商品名稱排序</a>
       </div>     
       <ul class="productType">
         <li><a href="/result?type=shirt">上衣<img src="/img/shirt.png"></a></li>

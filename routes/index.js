@@ -29,13 +29,45 @@ router.get('/result', function(req, res, next) {
   var docRef = db.collection("product");
   var productList = [];
   var productId = [];
-  console.log(req.query.type);
-  docRef.where("type","==",req.query.type).get().then(function (querySnapshot) {
+  if(req.query.type!=undefined){
+    if(req.query.order!=undefined && req.query.d!=undefined){
+      docRef.where("type","==",req.query.type).orderBy(req.query.order,req.query.d).get()
+      .then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          productList.push(doc.data());
+          productId.push(doc.id);
+        });
+        res.render('index', { title: '首頁', data: productList, id: productId });
+      })
+    }else{
+      docRef.where("type","==",req.query.type).get().then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          productList.push(doc.data());
+          productId.push(doc.id);
+        });
+        res.render('index', { title: '首頁', data: productList, id: productId });
+      })
+    }
+  }else if(req.query.order!=undefined && req.query.d!=undefined){
+    docRef.orderBy(req.query.order,req.query.d).get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        productList.push(doc.data());
+        productId.push(doc.id);
+      });
+      res.render('index', { title: '首頁', data: productList, id: productId });
+    })
+  }
+});
+
+router.post('/result', function(req, res, next) {
+  var docRef = db.collection("product");
+  var productList = [];
+  var productId = [];
+  docRef.where("name","==",req.body.keyword).get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
       productList.push(doc.data());
       productId.push(doc.id);
     });
-    console.log(productList);
     res.render('index', { title: '首頁', data: productList, id: productId });
   })
 });

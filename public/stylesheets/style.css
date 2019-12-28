@@ -95,12 +95,16 @@ h2{
   /* 顏色待改 */
 }
 
+.header form{
+  display: inline;
+}
+
+
 .header input[type="text"]{
   position: absolute;
-  left: 50%;
-  outline: none;
   margin-top: 10px;
-  margin-left: -125px;
+  left: 40%;
+  outline: none;
   width: 250px;
   height: 10px;
   padding: 10px;
@@ -111,11 +115,13 @@ h2{
   color: rgb(54, 31, 0);
 }
 
-.searchImg{
+.header button{
+  border: 0; 
+  background: transparent; 
   position: absolute;
-  margin-top: 15px;
-  left: 50%;
-  margin-left: 153px;
+  margin-top: 13px;
+  left: 40%;
+  margin-left: 238px;
 }
 
 .menu{
@@ -153,7 +159,8 @@ h2{
   float: right;
 }
 
-.sortButton button{
+.sortButton a{
+  text-decoration: none;
   float: right;
   outline: none;
   margin: 10px 10px 20px 0px;
@@ -271,7 +278,7 @@ h2{
   margin-top: 30px;
 }
 
-form{
+.login form{
   font-size: 20px;
   margin-top: 30px;
   color: rgb(54, 31, 0);
@@ -433,3 +440,4 @@ select{
 .manage input[type="submit"]:hover{
   background-color: rgba(180, 180, 180, 0.438);
 }
+
