@@ -99,6 +99,42 @@ router.get('/signup', function(req, res, next) {
   res.render('signup', { title: '註冊'});
 });
 
+router.post('/signup', function(req, res, next) {
+  var memberRef = db.collection("member");
+  var emailRegxp = /[\w-]+@([\w-]+\.)+[\w-]+/;
+
+  if(req.body.name != "" && req.body.id != "" && req.body.email != "" && req.body.password != ""){
+    memberRef.get().then(function (querySnapshot) { 
+      querySnapshot.forEach(function (doc) {
+        if(doc.data().id == req.body.id){
+          console.log("此帳號已被註冊");
+          setTimeout(function () {res.redirect("/signup")}, 3000);
+        }else if(doc.data().email == req.body.email){
+          console.log("此信箱已被註冊");
+          setTimeout(function () {res.redirect("/signup")}, 3000);
+        }else if(emailRegxp.test(req.body.email) != true){
+          console.log("請輸入正確信箱格式");
+          setTimeout(function () {res.redirect("/signup")}, 3000);
+        }else{
+          memberRef.add({
+            "name": req.body.name,
+            "id": req.body.id,
+            "email": req.body.email,
+            "password": req.body.password
+          }).then(function(){ 
+            console.log("註冊成功！三秒後跳轉登入畫面");
+            setTimeout(function () {res.redirect("/login")}, 3000);
+          }).catch(function (error) {
+            console.error("註冊失敗原因： ", error);
+          });
+        }
+      });
+    });             
+  }else{
+    console.log("還有欄位尚未填寫喔！");
+  } 
+});
+
 /* GET manage page. */
 router.get('/manage', function(req, res, next) {
   res.render('manage', { title: '新增商品'});

@@ -12,6 +12,7 @@
     "express": "~4.16.1",
     "firebase-admin": "^8.8.0",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "popups": "^1.1.3"
   }
 }
