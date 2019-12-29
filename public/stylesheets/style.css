@@ -212,11 +212,21 @@ h2{
 .productList li{
   float: left;
   text-align: center;
-  margin: 0px 20px 10px 20px;
+  margin: 0px 15px 10px 15px;
 }
 
 .productList li p{
   line-height: 30px;
+}
+
+.productList form{
+  display: inline;
+}
+
+.productList button{
+  border: 0; 
+  background: transparent; 
+  margin-left: -40px;
 }
 
 .productDetail{
@@ -259,11 +269,6 @@ h2{
   line-height: 40px;
   float: right;
   color: rgb(54, 31, 0);
-}
-
-.addFavoriteHeart{
-  margin-left: -35px;
-  margin-bottom: 10px;
 }
 
 .favoriteImg{

@@ -42,7 +42,15 @@
         <% for(var i = 0; i < data.length; i++){ %>
           <li>
             <a href="/detail?id=<%- id[i] %>"><img src="<%- data[i].image %>"></a>
-            <img class="addFavoriteHeart" src="/img/heart1.png" style="width: 25px;">
+            <form action="/addFavorite" method="POST">
+              <input type="hidden" name="id" value="<%- id[i] %>">
+              <input type="hidden" name="name" value="<%- data[i].name %>">
+              <input type="hidden" name="price" value="<%- data[i].price %>">
+              <input type="hidden" name="image" value="<%- data[i].image %>">
+              <button type="submit">
+                <img class="addFavoriteHeart" src="/img/heart1.png" width="25px" alt="submit" />
+              </button>
+            </form>
             <p><%- data[i].name %></p>
             <p>NT$<%- data[i].price %></p>
             <!-- 按下後變heart2.png --> 

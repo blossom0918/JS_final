@@ -22,87 +22,21 @@
     <div class="content">
       <h2><%= title %></h2>
       <ul class="favoriteList">
-        <li>
-          <a href="/detail" class="favoriteLink">
-            <img src="https://s4.lativ.com.tw/i/43707/43707_M_03_0_n.jpg" style="width: 130px;">
-          </a>
-          <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
-          <p>牛仔外套-女</p>
-          <p>NT$690</p>
-          <p class="favoriteDate">2019/12/22</p>   
-        </li>
-        <li>
-          <a href="/detail" class="favoriteLink">
-            <img src="https://s4.lativ.com.tw/i/43707/43707_M_03_0_n.jpg" style="width: 130px;">
-          </a>
-          <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
-          <p>牛仔外套-女</p>
-          <p>NT$690</p>
-          <p class="favoriteDate">2019/12/22</p>   
-        </li>
-        <li>
-          <a href="/detail" class="favoriteLink">
-            <img src="https://s4.lativ.com.tw/i/43707/43707_M_03_0_n.jpg" style="width: 130px;">
-          </a>
-          <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
-          <p>牛仔外套-女</p>
-          <p>NT$690</p>
-          <p class="favoriteDate">2019/12/22</p>   
-        </li>
-        <li>
-          <a href="/detail" class="favoriteLink">
-            <img src="https://s4.lativ.com.tw/i/43707/43707_M_03_0_n.jpg" style="width: 130px;">
-          </a>
-          <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
-          <p>牛仔外套-女</p>
-          <p>NT$690</p>
-          <p class="favoriteDate">2019/12/22</p>   
-        </li>
-        <li>
-          <a href="/detail" class="favoriteLink">
-            <img src="https://s4.lativ.com.tw/i/43707/43707_M_03_0_n.jpg" style="width: 130px;">
-          </a>
-          <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
-          <p>牛仔外套-女</p>
-          <p>NT$690</p>
-          <p class="favoriteDate">2019/12/22</p>   
-        </li>
-        <li>
-          <a href="/detail" class="favoriteLink">
-            <img src="https://s4.lativ.com.tw/i/43707/43707_M_03_0_n.jpg" style="width: 130px;">
-          </a>
-          <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
-          <p>牛仔外套-女</p>
-          <p>NT$690</p>
-          <p class="favoriteDate">2019/12/22</p>   
-        </li>
-        <li>
-          <a href="/detail" class="favoriteLink">
-            <img src="https://s4.lativ.com.tw/i/43707/43707_M_03_0_n.jpg" style="width: 130px;">
-          </a>
-          <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
-          <p>牛仔外套-女</p>
-          <p>NT$690</p>
-          <p class="favoriteDate">2019/12/22</p>   
-        </li>
-        <li>
-          <a href="/detail" class="favoriteLink">
-            <img src="https://s4.lativ.com.tw/i/43707/43707_M_03_0_n.jpg" style="width: 130px;">
-          </a>
-          <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
-          <p>牛仔外套-女</p>
-          <p>NT$690</p>
-          <p class="favoriteDate">2019/12/22</p>   
-        </li>
-        <li>
-          <a href="/detail" class="favoriteLink">
-            <img src="https://s4.lativ.com.tw/i/43707/43707_M_03_0_n.jpg" style="width: 130px;">
-          </a>
-          <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
-          <p>牛仔外套-女</p>
-          <p>NT$690</p>
-          <p class="favoriteDate">2019/12/22</p>   
-        </li>
+        <% for(var i = 0; i < data.length; i++){ %>
+          <% var date = new Date(data[i].date.toDate()) %>
+          <% var y = date.getFullYear() + '/'; %>
+          <% var m = date.getMonth() + '/'; %>
+          <% var d = date.getDate(); %>
+          <li>
+            <a href="/detail?id=<%- data[i].id %>" class="favoriteLink">
+              <img src="<%- data[i].image %>" style="width: 130px;">
+            </a>
+            <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
+            <p><%- data[i].name %></p>
+            <p>NT$<%- data[i].price %></p>
+            <p class="favoriteDate"><%- y+m+d %></p>   
+          </li>
+        <% } %>
       </ul>
     </div>
     <div class="clear"></div>
