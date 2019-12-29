@@ -10,10 +10,24 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 var session = require('express-session');
+//var NedbStore = require('nedb-session-store')( session );
+//app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   secret: '1q3rrwefsgdh54uu5h56',
-  cookie: { maxAge: 1000 * 2}
-}));
+  resave: true, //每次都保存一次seesion
+  saveUninitialized: false, //無session則設置
+  cookie: { 
+    // path: '/',
+    // httpOnly: true,
+    //secure: true, 需set proxy
+    maxAge: 24 * 60 * 60 * 1000 // session時間一天
+  }
+  // ,
+  // store: new NedbStore({
+  //   filename: 'path_to_nedb_persistence_file.db'
+  // })
+  
+  }));
 
 
 // view engine setup
