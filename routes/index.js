@@ -85,7 +85,8 @@ router.get('/detail', function(req, res, next) {
 
 /* GET favorite page. */
 router.get('/favorite', function(req, res, next) {
-  var docRef = db.collection("favoriteList").doc("pCOlGZw1aQpXSC4IPj4g").collection("favorites");
+  console.log(req.session.memberId);
+  var docRef = db.collection("favoriteList").doc(req.session.memberId).collection("favorites");
   var favoriteData = [];
   docRef.get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
@@ -113,7 +114,7 @@ router.get('/favorite', function(req, res, next) {
 
 /* Add Favorite. */
 router.post('/addFavorite', function(req, res, next) {
-  var docRef = db.collection("favoriteList").doc("pCOlGZw1aQpXSC4IPj4g").collection("favorites");
+  var docRef = db.collection("favoriteList").doc(req.session.memberId).collection("favorites");
   var checkRepeat = false;
   docRef.get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
@@ -129,7 +130,7 @@ router.post('/addFavorite', function(req, res, next) {
         "price": parseInt(req.body.price),
         "image": req.body.image
       };
-      db.collection("favoriteList").doc("pCOlGZw1aQpXSC4IPj4g").collection("favorites").add(addData)
+      db.collection("favoriteList").doc(req.session.memberId).collection("favorites").add(addData)
       .then(function (docRef) {
         console.log("新增成功");
         res.redirect('/');
