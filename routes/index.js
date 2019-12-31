@@ -86,7 +86,7 @@ router.post('/result', function(req, res, next) {
   var docRef = db.collection("product");
   var productList = [];
   var productId = [];
-  docRef.where("name","==",req.query.keyword).get().then(function (querySnapshot) {
+  docRef.where("name","==",req.body.keyword).get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
       productList.push(doc.data());
       productId.push(doc.id);
