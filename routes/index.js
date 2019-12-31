@@ -131,6 +131,17 @@ router.post('/addFavorite', function(req, res, next) {
   }
 });
 
+router.post('/deleteFavorite',function(req, res, next){
+  var docRef = db.collection('favoriteList').doc(req.session.memberId).collection("favorites")
+              .where('id', '==', req.query.id);
+  docRef.get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+      doc.ref.delete();
+      res.send({ result: 'success'});
+    });
+  });
+});
+
 /* GET login page. */
 router.get('/login', function(req, res, next) {
   var memberRef = db.collection('member');

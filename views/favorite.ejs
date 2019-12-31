@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
   </head>
   <body>
     <div class="header">
@@ -31,6 +32,7 @@
             <a href="/detail?id=<%- data[i].id %>" class="favoriteLink">
               <img src="<%- data[i].image %>" style="width: 130px;">
             </a>
+            <input type="hidden" class="id" name="id" value="<%- data[i].id %>">
             <img class="deleteFavorite" src="/img/delete2.png" style="width: 15px;">
             <p style="width: 129px;"><%- data[i].name %></p>
             <p>NT$<%- data[i].price %></p>
@@ -42,3 +44,28 @@
     <div class="clear"></div>
   </body>
 </html>
+<script type="text/javascript">
+  $(".deleteFavorite").click(function (e) {
+    var msg = "您確定要刪除嗎？"; 
+    if (confirm(msg)==true){ 
+      var id = $(this).closest("li").find(".id").val();
+      var data = "id="+id;
+      let xhr = new XMLHttpRequest();
+      xhr.open("post","/deleteFavorite?"+data);
+      xhr.send();
+
+      xhr.onload = function(){
+        var response = JSON.parse(xhr.responseText);
+        if(response.result == 'success'){
+          alert("刪除成功");
+          window.location.reload();
+        }else{
+          alert("刪除失敗");
+        }
+      }
+      return true; 
+    }else{ 
+      return false; 
+    }
+  });
+</script>
