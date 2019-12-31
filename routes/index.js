@@ -117,22 +117,24 @@ router.get('/detail', function(req, res, next) {
 router.get('/favorite', function(req, res, next) {
   var islogin = false
   var ismanager = false
-  if(req.session.memberId!=undefined){
+  if(req.session.memberId != undefined){
     islogin = true;
     if(req.session.memberId == "KJOmmG5zXbJ0UuvbEdky"){
       ismanager = true;
     }
+    var docRef = db.collection("favoriteList").doc(req.session.memberId).collection("favorites");
+    var favoriteData = [];
+    docRef.orderBy('date','desc').get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        favoriteData.push(doc.data());
+      });
+      console.log(favoriteData);
+      res.render('favorite', { title: '我的最愛', data: favoriteData,  islogin: islogin, ismanager: ismanager });
+    })  
+  }else{
+    console.log("請先登入！兩秒後跳轉登入畫面");
+    setTimeout(function () {res.redirect("/login")}, 2000);
   }
-  if(req.session.memberId != undefined){}
-  var docRef = db.collection("favoriteList").doc(req.session.memberId).collection("favorites");
-  var favoriteData = [];
-  docRef.get().then(function (querySnapshot) {
-    querySnapshot.forEach(function (doc) {
-      favoriteData.push(doc.data());
-    });
-    console.log(favoriteData);
-    res.render('favorite', { title: '我的最愛', data: favoriteData,  islogin: islogin, ismanager: ismanager });
-  })  
 });
 
 /* Add Favorite. */
@@ -265,9 +267,16 @@ router.get('/manage', function(req, res, next) {
     islogin = true;
     if(req.session.memberId == "KJOmmG5zXbJ0UuvbEdky"){
       ismanager = true;
+      res.render('manage', { title: '新增商品', islogin: islogin, ismanager: ismanager });
+    }else{
+      console.log("非管理員！兩秒後跳轉登入畫面");
+      setTimeout(function () {res.redirect("/login")}, 2000);
     }
+  }else{
+    console.log("請先登入！兩秒後跳轉登入畫面");
+    setTimeout(function () {res.redirect("/login")}, 2000);
   }
-  res.render('manage', { title: '新增商品', islogin: islogin, ismanager: ismanager });
+  
 });
 
 /* GET manage page. */
