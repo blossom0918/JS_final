@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
   </head>
   <body>
     <div class="header">
@@ -42,18 +43,13 @@
         <% for(var i = 0; i < data.length; i++){ %>
           <li>
             <a href="/detail?id=<%- id[i] %>"><img src="<%- data[i].image %>"></a>
-            <form action="/addFavorite" method="POST">
-              <input type="hidden" name="id" value="<%- id[i] %>">
-              <input type="hidden" name="name" value="<%- data[i].name %>">
-              <input type="hidden" name="price" value="<%- data[i].price %>">
-              <input type="hidden" name="image" value="<%- data[i].image %>">
-              <button type="submit">
-                <img class="addFavoriteHeart" src="/img/heart1.png" width="25px" alt="submit" />
-              </button>
-            </form>
+            <input type="hidden" class="id" name="id" value="<%- id[i] %>">
+            <input type="hidden" class="name" name="name" value="<%- data[i].name %>">
+            <input type="hidden" class="price" name="price" value="<%- data[i].price %>">
+            <input type="hidden" class="image" name="image" value="<%- data[i].image %>">
+            <img class="addFavoriteHeart" src="/img/heart1.png" width="25px"/>
             <p><%- data[i].name %></p>
             <p>NT$<%- data[i].price %></p>
-            <!-- 按下後變heart2.png --> 
           </li>
         <% } %>
       </ul>
@@ -61,3 +57,28 @@
     <div class="clear"></div>
   </body>
 </html>
+<script type="text/javascript">
+  $(".addFavoriteHeart").click(function (e) {
+    var id = $(this).closest("li").find(".id").val();
+    var name = $(this).closest("li").find(".name").val();
+    var price = $(this).closest("li").find(".price").val();
+    var image = $(this).closest("li").find(".image").val();
+    var data = "id="+id+"&name="+name+"&price="+price+"&image="+image;
+    let xhr = new XMLHttpRequest();
+    xhr.open("post","/addFavorite?"+data);
+    xhr.send();
+
+    xhr.onload = function(){
+      var response = JSON.parse(xhr.responseText);
+      if(response.result == 'success'){
+        alert("新增成功");
+      }else if(response.result == 'repeat'){
+        alert("該商品已存在於最愛清單中，不可重複加入");
+      }else if(response.result == 'login'){
+        alert("請先登入");
+      }else{
+        alert("新增失敗:" + response.result);
+      }
+    }
+  });
+</script>

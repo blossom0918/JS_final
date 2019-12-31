@@ -78,14 +78,13 @@ router.get('/detail', function(req, res, next) {
   var productData;
   docRef.get().then(function (doc) {
     productData = doc.data();
-    console.log(productData);
-    res.render('detail', { title: '商品明細', data: productData});
+    res.render('detail', { title: '商品明細', data: productData, id: req.query.id });
   })
 });
 
 /* GET favorite page. */
 router.get('/favorite', function(req, res, next) {
-  console.log(req.session.memberId);
+  if(req.session.memberId != undefined){}
   var docRef = db.collection("favoriteList").doc(req.session.memberId).collection("favorites");
   var favoriteData = [];
   docRef.get().then(function (querySnapshot) {
@@ -95,69 +94,41 @@ router.get('/favorite', function(req, res, next) {
     console.log(favoriteData);
     res.render('favorite', { title: '我的最愛', data: favoriteData });
   })  
-  //session不見
-  // console.log(req.session.memberId);
-  // if(req.session.memberId != undefined){
-  //   var docRef = db.collection("favoriteList").doc(req.session.memberId).collection("favorites");
-  //   var favoriteData = [];
-  //   docRef.get().then(function (querySnapshot) {
-  //     querySnapshot.forEach(function (doc) {
-  //       favoriteData.push(doc.data());
-  //     });
-  //     console.log(favoriteData);
-  //     res.render('favorite', { title: '我的最愛', data: favoriteData });
-  //   })  
-  // }else{
-  //   console.log("請先登入");
-  // }
 });
 
 /* Add Favorite. */
 router.post('/addFavorite', function(req, res, next) {
-  var docRef = db.collection("favoriteList").doc(req.session.memberId).collection("favorites");
-  var checkRepeat = false;
-  docRef.get().then(function (querySnapshot) {
-    querySnapshot.forEach(function (doc) {
-      if(doc.data().id == req.body.id){
-        checkRepeat = true;
-      }
-    });
-    if(checkRepeat == false){
-      var addData = {
-        "date": admin.firestore.FieldValue.serverTimestamp(),
-        "id": req.body.id,
-        "name": req.body.name,
-        "price": parseInt(req.body.price),
-        "image": req.body.image
-      };
-      db.collection("favoriteList").doc(req.session.memberId).collection("favorites").add(addData)
-      .then(function (docRef) {
-        console.log("新增成功");
-        res.redirect('/');
-      })
-      .catch(function (error) {
-        console.error("新增失敗原因： ", error);
-        res.redirect('/');
+  if(req.session.memberId != undefined){
+    var docRef = db.collection("favoriteList").doc(req.session.memberId).collection("favorites");
+    var checkRepeat = false;
+    docRef.get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        if(doc.data().id == req.query.id){
+          checkRepeat = true;
+        }
       });
-    }else{
-      console.log("該商品已存在於最愛清單中，不可重複加入");
-      res.redirect('/');
-    }
-  })  
-  //session不見
-  // console.log(req.session.memberId);
-  // console.log(addData);
-  // if(req.session.memberId != undefined){
-  //   db.collection("favoriteList").doc(req.session.memberId).collection("favorites").add(addData)
-  //   .then(function (docRef) {
-  //     console.log("新增成功");
-  //   })
-  //   .catch(function (error) {
-  //     console.error("新增失敗原因： ", error);
-  //   });
-  // }else{
-  //   console.log("請先登入");
-  // }
+      if(checkRepeat == false){
+        var addData = {
+          "date": admin.firestore.FieldValue.serverTimestamp(),
+          "id": req.query.id,
+          "name": req.query.name,
+          "price": parseInt(req.query.price),
+          "image": req.query.image
+        };
+        db.collection("favoriteList").doc(req.session.memberId).collection("favorites").add(addData)
+        .then(function (docRef) {
+          res.send({ result: 'success'});
+        })
+        .catch(function (error) {
+          res.send({ result: error});
+        });
+      }else{
+        res.send({ result: 'repeat'});
+      }
+    })  
+  }else{
+    res.send({ result: 'login'});
+  }
 });
 
 /* GET login page. */

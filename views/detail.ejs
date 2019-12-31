@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
   </head>
   <body>
     <div class="header">
@@ -30,13 +31,41 @@
         <div class="productDetail">
             <img class="productImg" src="<%- data.image2 %>">
             <div class="productInfo">
-                <p class="productName"><%- data.name %></p>
-                <p class="productPrice">NT$<%- data.price %></p>
-                <p class="addFavorite">加入收藏<img src="/img/heart1.png" class="favoriteImg"></p>
-                <!-- 按下後變至收藏移出、heart2.png -->
+              <p class="productName"><%- data.name %></p>
+              <p class="productPrice">NT$<%- data.price %></p>
+              <input type="hidden" class="id" name="id" value="<%- id %>">
+              <input type="hidden" class="name" name="name" value="<%- data.name %>">
+              <input type="hidden" class="price" name="price" value="<%- data.price %>">
+              <input type="hidden" class="image" name="image" value="<%- data.image %>">
+              <p class="addFavorite">加入收藏<img src="/img/heart1.png" class="favoriteImg"></p>
             </div>
         </div>
     </div>
     <div class="clear"></div>
   </body>
 </html>
+<script type="text/javascript">
+  $(".addFavorite").click(function (e) {
+    var id = $(".id").val();
+    var name = $(".name").val();
+    var price = $(".price").val();
+    var image = $(".image").val();
+    var data = "id="+id+"&name="+name+"&price="+price+"&image="+image;
+    let xhr = new XMLHttpRequest();
+    xhr.open("post","/addFavorite?"+data);
+    xhr.send();
+
+    xhr.onload = function(){
+      var response = JSON.parse(xhr.responseText);
+      if(response.result == 'success'){
+        alert("新增成功");
+      }else if(response.result == 'repeat'){
+        alert("該商品已存在於最愛清單中，不可重複加入");
+      }else if(response.result == 'login'){
+        alert("請先登入");
+      }else{
+        alert("新增失敗:" + response.result);
+      }
+    }
+  });
+</script>
