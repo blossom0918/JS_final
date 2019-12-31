@@ -15,10 +15,13 @@
             首頁</a></li>
           <li class="menuManage"><a href="/manage">
             <img src="/img/manage.png" style="width:15px;">新增商品</a></li> 
-          <li class="menuLogin"><a href="/login" style="border-right: none;">
-            <img src="/img/login.png" style="width:15px;">會員登入</a></li>
-          <li class="menuFavorite"><a href="/favorite" style="border-right: none;">
+          <li class="menuLogin"><a href="/login" style="border-right: none;padding-right: 5px;">
+            <img src="/img/login.png" style="width:15px;">登入</a>/
+            <a href="/signup" style="border-right: none;padding-left: 5px;">註冊</a></li> 
+          <li class="menuFavorite"><a href="/favorite">
             <img src="/img/favorite.png" style="width:15px;">我的最愛</a></li> 
+          <li class="menuLogout"><a href="/logout" style="border-right: none;">
+            <img src="/img/login.png" style="width:15px;">登出</a></li>
         </ul>    
     </div>
     <div class="clear"></div>
@@ -52,7 +55,9 @@
     if($(".islogin").val() == "true"){
       $(".menuLogin").hide();
       $(".menuFavorite").show();
+      $(".menuLogout").show();
     }else{
+      $(".menuLogout").hide();
       $(".menuFavorite").hide();
       $(".menuLogin").show();
     }

@@ -136,7 +136,6 @@ h2{
 
 .menu li a{
   text-align: center;
-  display: block;
   text-decoration :none;
   color: rgb(54, 31, 0);
   border-right: 1px rgb(54, 31, 0, 0.3) solid;

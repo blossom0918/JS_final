@@ -185,7 +185,6 @@ router.post('/deleteFavorite',function(req, res, next){
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-  var memberRef = db.collection('member');
   res.render('login', {
     title: '登入',
     memberId: req.session.memberId
@@ -296,6 +295,12 @@ router.post('/manage', function(req, res, next) {
   .catch(function (error) {
     console.error("新增失敗原因： ", error);
   });
+});
+
+/* GET logout page. */
+router.get('/logout', function(req, res, next) {
+  req.session.destroy();
+  res.redirect('/');
 });
 
 module.exports = router;
