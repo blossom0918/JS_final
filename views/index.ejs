@@ -8,15 +8,17 @@
   <body>
     <div class="header">
       <a href="/"><h1>Lativ</h1></a>
+      <input type="hidden" class="islogin" name="islogin" value="<%- islogin %>">
+      <input type="hidden" class="ismanager" name="ismanager" value="<%- ismanager %>">
       <ul class="menu">
         <li><a href="/"><img src="/img/home.png" style="width:15px;">
           首頁</a></li>
-        <li><a href="/login"><img src="/img/login.png" style="width:15px;">
-          會員登入</a></li>
-        <li><a href="/manage"><img src="/img/manage.png" style="width:15px;">
-          新增商品</a></li> 
-        <li><a href="/favorite" style="border-right: none;"><img src="/img/favorite.png" style="width:15px;">
-          我的最愛</a></li> 
+        <li class="menuManage"><a href="/manage">
+          <img src="/img/manage.png" style="width:15px;">新增商品</a></li> 
+        <li class="menuLogin"><a href="/login" style="border-right: none;">
+          <img src="/img/login.png" style="width:15px;">會員登入</a></li>
+        <li class="menuFavorite"><a href="/favorite" style="border-right: none;">
+          <img src="/img/favorite.png" style="width:15px;">我的最愛</a></li> 
       </ul>      
       <form action="/result" method="POST">
         <input type="text" placeholder="請輸入關鍵字" name="keyword">
@@ -58,6 +60,23 @@
   </body>
 </html>
 <script type="text/javascript">
+  $(document).ready(function() {
+    console.log($(".islogin").val());
+    console.log($(".ismanager").val());
+    if($(".islogin").val() == "true"){
+      $(".menuLogin").hide();
+      $(".menuFavorite").show();
+    }else{
+      $(".menuFavorite").hide();
+      $(".menuLogin").show();
+    }
+    if($(".ismanager").val() == "true"){
+      $(".menuManage").show();
+    }else{
+      $(".menuManage").hide();
+    }
+  });
+
   $(".addFavoriteHeart").click(function (e) {
     var id = $(this).closest("li").find(".id").val();
     var name = $(this).closest("li").find(".name").val();

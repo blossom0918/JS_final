@@ -12,7 +12,14 @@ let db = admin.firestore();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.session.memberId);
+  var islogin = false
+  var ismanager = false
+  if(req.session.memberId!=undefined){
+    islogin = true;
+    if(req.session.memberId == "KJOmmG5zXbJ0UuvbEdky"){
+      ismanager = true;
+    }
+  }
   var docRef = db.collection("product");
   var productList = [];
   var productId = [];
@@ -21,11 +28,19 @@ router.get('/', function(req, res, next) {
       productList.push(doc.data());
       productId.push(doc.id);
     });
-    res.render('index', { title: '首頁', data: productList, id: productId });
+    res.render('index', { title: '首頁', data: productList, id: productId, islogin: islogin, ismanager: ismanager });
   })
 });
 
 router.get('/result', function(req, res, next) {
+  var islogin = false
+  var ismanager = false
+  if(req.session.memberId!=undefined){
+    islogin = true;
+    if(req.session.memberId == "KJOmmG5zXbJ0UuvbEdky"){
+      ismanager = true;
+    }
+  }
   var docRef = db.collection("product");
   var productList = [];
   var productId = [];
@@ -37,7 +52,7 @@ router.get('/result', function(req, res, next) {
           productList.push(doc.data());
           productId.push(doc.id);
         });
-        res.render('index', { title: '首頁', data: productList, id: productId });
+        res.render('index', { title: '首頁', data: productList, id: productId,  islogin: islogin, ismanager: ismanager });
       })
     }else{
       docRef.where("type","==",req.query.type).get().then(function (querySnapshot) {
@@ -45,7 +60,7 @@ router.get('/result', function(req, res, next) {
           productList.push(doc.data());
           productId.push(doc.id);
         });
-        res.render('index', { title: '首頁', data: productList, id: productId });
+        res.render('index', { title: '首頁', data: productList, id: productId,  islogin: islogin, ismanager: ismanager });
       })
     }
   }else if(req.query.order!=undefined && req.query.d!=undefined){
@@ -54,36 +69,60 @@ router.get('/result', function(req, res, next) {
         productList.push(doc.data());
         productId.push(doc.id);
       });
-      res.render('index', { title: '首頁', data: productList, id: productId });
+      res.render('index', { title: '首頁', data: productList, id: productId,  islogin: islogin, ismanager: ismanager });
     })
   }
 });
 
 router.post('/result', function(req, res, next) {
+  var islogin = false
+  var ismanager = false
+  if(req.session.memberId!=undefined){
+    islogin = true;
+    if(req.session.memberId == "KJOmmG5zXbJ0UuvbEdky"){
+      ismanager = true;
+    }
+  }
   var docRef = db.collection("product");
   var productList = [];
   var productId = [];
-  docRef.where("name","==",req.body.keyword).get().then(function (querySnapshot) {
+  docRef.where("name","==",req.query.keyword).get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
       productList.push(doc.data());
       productId.push(doc.id);
     });
-    res.render('index', { title: '首頁', data: productList, id: productId });
+    res.render('index', { title: '首頁', data: productList, id: productId,  islogin: islogin, ismanager: ismanager });
   })
 });
 
 /* GET detail page. */
 router.get('/detail', function(req, res, next) {
+  var islogin = false
+  var ismanager = false
+  if(req.session.memberId!=undefined){
+    islogin = true;
+    if(req.session.memberId == "KJOmmG5zXbJ0UuvbEdky"){
+      ismanager = true;
+    }
+  }
   var docRef = db.collection("product").doc(req.query.id);
   var productData;
   docRef.get().then(function (doc) {
     productData = doc.data();
-    res.render('detail', { title: '商品明細', data: productData, id: req.query.id });
+    res.render('detail', { title: '商品明細', data: productData, id: req.query.id,  islogin: islogin, ismanager: ismanager });
   })
 });
 
 /* GET favorite page. */
 router.get('/favorite', function(req, res, next) {
+  var islogin = false
+  var ismanager = false
+  if(req.session.memberId!=undefined){
+    islogin = true;
+    if(req.session.memberId == "KJOmmG5zXbJ0UuvbEdky"){
+      ismanager = true;
+    }
+  }
   if(req.session.memberId != undefined){}
   var docRef = db.collection("favoriteList").doc(req.session.memberId).collection("favorites");
   var favoriteData = [];
@@ -92,7 +131,7 @@ router.get('/favorite', function(req, res, next) {
       favoriteData.push(doc.data());
     });
     console.log(favoriteData);
-    res.render('favorite', { title: '我的最愛', data: favoriteData });
+    res.render('favorite', { title: '我的最愛', data: favoriteData,  islogin: islogin, ismanager: ismanager });
   })  
 });
 
@@ -220,7 +259,15 @@ router.post('/signup', function(req, res, next) {
 
 /* GET manage page. */
 router.get('/manage', function(req, res, next) {
-  res.render('manage', { title: '新增商品'});
+  var islogin = false
+  var ismanager = false
+  if(req.session.memberId!=undefined){
+    islogin = true;
+    if(req.session.memberId == "KJOmmG5zXbJ0UuvbEdky"){
+      ismanager = true;
+    }
+  }
+  res.render('manage', { title: '新增商品', islogin: islogin, ismanager: ismanager });
 });
 
 /* GET manage page. */
