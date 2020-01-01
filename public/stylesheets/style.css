@@ -69,7 +69,8 @@ body {
 }
 
 a {
-  color: rgb(54, 31, 0);
+  color: rgb(128, 77, 35);
+  text-decoration: none;
 }
 
 h1{
@@ -277,10 +278,16 @@ h2{
   margin-left: 5px;
 }
 
+.loginBody{
+  background: url(/img/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .login{
   width: 100%;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 90px;
 }
 
 .login form{
@@ -296,9 +303,10 @@ h2{
   height: 15px;
   padding: 10px;
   border-radius: 5px;
-  border: 1px rgb(150, 150, 150) solid;
+  border: none;
   font-family: "Microsoft JhengHei UI", sans-serif;
   font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .login input[type="password"]{
@@ -308,8 +316,9 @@ h2{
   height: 15px;
   padding: 10px;
   border-radius: 5px;
-  border: 1px rgb(150, 150, 150) solid;
+  border: none;
   font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .login input[type="submit"]{
@@ -318,7 +327,7 @@ h2{
   width: 100px;
   height: 30px;
   border-radius: 5px;
-  background-color: rgba(179, 179, 179, 0.322);
+  background-color: rgba(255, 255, 255, 0.2);
   border: 0;
   font-family: "Microsoft JhengHei UI", sans-serif;
   font-size: 18px;
