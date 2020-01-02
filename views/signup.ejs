@@ -4,8 +4,8 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
-    <div class="header">
+  <body class="signupBody">
+    <div class="header" style="background-color: transparent;">
       <a href="/"><h1>Lativ</h1></a>
       <ul class="menu">
         <li><a href="/login" style="border-right: none;"><img src="/img/login.png" style="width:15px; border-right: none;">
@@ -16,15 +16,54 @@
     <div class="content">
         <div class="signup">
             <h2><%= title %></h2>
-            <form action = "/signup" method = "POST">
-              姓名:<input type="text" name="name"><br>
-              帳號:<input type="text" name="id"><br>
-              密碼:<input type="password" name="password"><br>
-              信箱:<input type="text" name="email"><br>
-              <input type="submit" value="註冊"><br>
+            <div>
+              姓名:<input type="text" name="name" class="name"><br>
+              帳號:<input type="text" name="id" class="id"><br>
+              密碼:<input type="password" name="password" class="password"><br>
+              信箱:<input type="text" name="email" class="email"><br>
+              <input type="button" value="註冊" class="send"><br>
               已經有帳號了嗎？立即<a href="/login">點我登入</a>
-            </form>
+            </div>
         </div>
     </div>
+
+    <script>
+      document.querySelector('.send').addEventListener('click', signIn, false);
+
+      function signIn(){
+        var nameInput = document.querySelector('.name').value;
+        var idInput = document.querySelector('.id').value;
+        var pswInput = document.querySelector('.password').value;
+        var emailInput = document.querySelector('.email').value;
+        var account = {};
+        account.name = nameInput;
+        account.id = idInput;
+        account.password = pswInput;
+        account.email = emailInput;
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('post', '/signup', true);
+        xhr.setRequestHeader('Content-type','application/json');
+        var data = JSON.stringify(account);
+        xhr.send(data);
+        xhr.onload = function(){
+          var callbackData = JSON.parse(xhr.responseText);
+
+          if(callbackData.message == "Signed ID"){
+            alert("此帳號已被註冊");
+          }else if(callbackData.message == "Signed email"){
+            alert("此信箱已被註冊");
+          }else if(callbackData.message ==  "Wrong emailRegxp"){
+            alert("請輸入正確信箱格式");
+          }else if(callbackData.message == "Blank field"){
+            alert("還有欄位尚未填寫喔！");
+          }else if(callbackData.message == "Success"){
+            alert("註冊成功！兩秒後跳轉登入畫面");
+            setTimeout(window.location.replace('/login'), 2000);
+          }
+        }
+
+      }
+    </script>
   </body>
 </html>

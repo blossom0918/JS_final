@@ -290,7 +290,7 @@ h2{
   margin-top: 90px;
 }
 
-.login form{
+.login div{
   font-size: 20px;
   margin-top: 30px;
   color: rgb(54, 31, 0);
@@ -321,7 +321,7 @@ h2{
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.login input[type="submit"]{
+.login input[type="button"]{
   outline: none;
   margin: 10px 10px 20px 10px;
   width: 100px;
@@ -334,14 +334,26 @@ h2{
   color: rgb(54, 31, 0);
 }
 
-.login input[type="submit"]:hover{
+.login input[type="button"]:hover{
   background-color: rgba(180, 180, 180, 0.438);
+}
+
+.signupBody{
+  background: url(/img/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .signup{
   width: 100%;
   text-align: center;
+  margin-top: 50px;
+}
+
+.signup div{
+  font-size: 20px;
   margin-top: 30px;
+  color: rgb(54, 31, 0);
 }
 
 .signup input[type="text"]{
@@ -351,9 +363,10 @@ h2{
   height: 15px;
   padding: 10px;
   border-radius: 5px;
-  border: 1px rgb(150, 150, 150) solid;
+  border: none;
   font-family: "Microsoft JhengHei UI", sans-serif;
   font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .signup input[type="password"]{
@@ -363,11 +376,12 @@ h2{
   height: 15px;
   padding: 10px;
   border-radius: 5px;
-  border: 1px rgb(150, 150, 150) solid;
+  border: none;
   font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.signup input[type="submit"]{
+.signup input[type="button"]{
   outline: none;
   margin: 10px 10px 20px 10px;
   width: 100px;
@@ -380,7 +394,7 @@ h2{
   color: rgb(54, 31, 0);
 }
 
-.signup input[type="submit"]:hover{
+.signup input[type="button"]:hover{
   background-color: rgba(180, 180, 180, 0.438);
 }
 

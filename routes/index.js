@@ -198,16 +198,19 @@ router.post('/login', function(req, res, next) {
       querySnapshot.forEach(function (doc) {
         if(doc.data().password == req.body.password){
           req.session.memberId = doc.id;
-          console.log(req.session.memberId+"登入成功");
-          res.redirect('/');
+          res.send({ 
+            message: "Success", 
+            memberId: req.session.memberId
+          });
+          console.log(req.session.memberId + "登入成功");
         }else{
+          res.send({ message: "Wrong password"});
           console.log("密碼輸入錯誤，兩秒後重新載入登入畫面");
-          setTimeout(function () {res.redirect("/login")}, 2000);
         }
       });
     });             
   }else{
-    console.log("還有欄位尚未填寫喔！");
+    res.send({ message: "Blank field"});
   } 
 });
 
@@ -225,16 +228,16 @@ router.post('/signup', function(req, res, next) {
     memberRef.get().then(function (querySnapshot) { 
       querySnapshot.forEach(function (doc) {
         if(doc.data().id == req.body.id){
+          res.send({ message: "Signed ID"});
           console.log("此帳號已被註冊");
-          setTimeout(function () {res.redirect("/signup")}, 2000);
           flag = 1;
         }else if(doc.data().email == req.body.email){
+          res.send({ message: "Signed email"});
           console.log("此信箱已被註冊");
-          setTimeout(function () {res.redirect("/signup")}, 2000);
           flag = 1;
         }else if(emailRegxp.test(req.body.email) != true){
+          res.send({ message: "Wrong emailRegxp"});
           console.log("請輸入正確信箱格式");
-          setTimeout(function () {res.redirect("/signup")}, 2000);
           flag = 1;
         }
 
@@ -245,16 +248,14 @@ router.post('/signup', function(req, res, next) {
             "email": req.body.email,
             "password": req.body.password
           }).then(function(){ 
+            res.send({ message: "Success" });
             console.log("註冊成功！兩秒後跳轉登入畫面");
-            setTimeout(function () {res.redirect("/login")}, 2000);
-          }).catch(function (error) {
-            console.error("註冊失敗原因： ", error);
           });
         }
       });
     });             
   }else{
-    console.log("還有欄位尚未填寫喔！");
+    res.send({ message: "Blank field"});
   } 
 });
 
