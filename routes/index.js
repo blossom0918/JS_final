@@ -228,20 +228,23 @@ router.post('/signup', function(req, res, next) {
     memberRef.get().then(function (querySnapshot) { 
       querySnapshot.forEach(function (doc) {
         if(doc.data().id == req.body.id){
+          flag = 1;
           res.send({ message: "Signed ID"});
           console.log("此帳號已被註冊");
-          flag = 1;
+          
         }else if(doc.data().email == req.body.email){
+          flag = 1;
           res.send({ message: "Signed email"});
           console.log("此信箱已被註冊");
-          flag = 1;
+          
         }else if(emailRegxp.test(req.body.email) != true){
+          flag = 1;
           res.send({ message: "Wrong emailRegxp"});
           console.log("請輸入正確信箱格式");
-          flag = 1;
+          
         }
 
-        if(flag == 0){
+        if(flag != 1){
           memberRef.add({
             "name": req.body.name,
             "id": req.body.id,
