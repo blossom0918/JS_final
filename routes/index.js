@@ -185,10 +185,15 @@ router.post('/deleteFavorite',function(req, res, next){
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-  res.render('login', {
-    title: '登入',
-    memberId: req.session.memberId
-  });
+  var islogin = false
+  var ismanager = false
+  if(req.session.memberId!=undefined){
+    islogin = true;
+    if(req.session.memberId == "KJOmmG5zXbJ0UuvbEdky"){
+      ismanager = true;
+    }
+  }
+  res.render('login', { title: '登入', memberId: req.session.memberId, islogin: islogin, ismanager: ismanager });
 });
 
 router.post('/login', function(req, res, next) {
@@ -216,7 +221,15 @@ router.post('/login', function(req, res, next) {
 
 /* GET signup page. */
 router.get('/signup', function(req, res, next) {
-  res.render('signup', { title: '註冊'});
+  var islogin = false
+  var ismanager = false
+  if(req.session.memberId!=undefined){
+    islogin = true;
+    if(req.session.memberId == "KJOmmG5zXbJ0UuvbEdky"){
+      ismanager = true;
+    }
+  }
+  res.render('signup', { title: '註冊', islogin: islogin, ismanager: ismanager });
 });
 
 router.post('/signup', function(req, res, next) {

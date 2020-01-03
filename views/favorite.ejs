@@ -31,7 +31,7 @@
         <% for(var i = 0; i < data.length; i++){ %>
           <% var date = new Date(data[i].date.toDate()) %>
           <% var y = date.getFullYear() + '/'; %>
-          <% var m = date.getMonth() + '/'; %>
+          <% var m = date.getMonth()+ 1 + '/'; %>
           <% var d = date.getDate(); %>
           <li>
             <a href="/detail?id=<%- data[i].id %>" class="favoriteLink">

@@ -3,14 +3,18 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
   </head>
   <body class="loginBody">
     <div class="header" style="background-color: transparent;">
       <a href="/"><h1>Lativ</h1></a>
       <ul class="menu">
-        <li><a href="/signup" style="border-right: none;"><img src="/img/login.png" style="width:15px;">
-          會員註冊</a></li>
-      </ul>
+        <li><a href="/"><img src="/img/home2.png" style="width:15px;">
+          首頁</a></li>
+        <li class="menuLogin"><a href="/login" style="border-right: none;padding-right: 5px;">
+          <img src="/img/login2.png" style="width:15px;">登入</a>/
+          <a href="/signup" style="border-right: none;padding-left: 5px;">註冊</a></li>
+      </ul>      
     </div>
     <div class="clear"></div>
     <div class="content">

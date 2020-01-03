@@ -284,6 +284,18 @@ h2{
   background-size: cover;
 }
 
+.loginBody h1{
+  color: #fff;
+}
+
+.loginBody .menu{
+  color: #fff;
+}
+
+.loginBody .menu a{
+  color: #fff;
+}
+
 .login{
   width: 100%;
   text-align: center;
@@ -342,6 +354,18 @@ h2{
   background: url(/img/bg.png);
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.signupBody h1{
+  color: #fff;
+}
+
+.signupBody .menu{
+  color: #fff;
+}
+
+.signupBody .menu a{
+  color: #fff;
 }
 
 .signup{
