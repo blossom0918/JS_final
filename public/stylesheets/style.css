@@ -64,7 +64,8 @@ table {
 
 body {
   margin: 0 auto;
-  font: 16px "Microsoft JhengHei UI", sans-serif;
+  font-size: 18px;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
   color: rgb(54, 31, 0);
 }
 
@@ -91,7 +92,7 @@ h2{
   position:fixed;
   padding: 5px 15px;
   width: 98%;
-  height: 50px;
+  height: 45px;
   background-color: WhiteSmoke;
   /* 顏色待改 */
 }
@@ -103,7 +104,7 @@ h2{
 
 .header input[type="text"]{
   position: absolute;
-  margin-top: 10px;
+  margin-top: 7px;
   left: 40%;
   outline: none;
   width: 250px;
@@ -111,8 +112,8 @@ h2{
   padding: 10px;
   border-radius: 5px;
   border: 1px rgb(150, 150, 150) solid;
-  font-family: "Microsoft JhengHei UI", sans-serif;
-  font-size: 15px;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-size: 17px;
   color: rgb(54, 31, 0);
 }
 
@@ -120,7 +121,7 @@ h2{
   border: 0; 
   background: transparent; 
   position: absolute;
-  margin-top: 13px;
+  margin-top: 11px;
   left: 40%;
   margin-left: 238px;
 }
@@ -166,8 +167,8 @@ h2{
   margin: 10px 10px 20px 0px;
   background-color: transparent;
   border: 0;
-  font-family: "Microsoft JhengHei UI", sans-serif;
-  font-size: 14px;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-size: 16px;
   color: rgb(117, 90, 56, 0.8);
 }
 
@@ -265,8 +266,8 @@ h2{
   text-align: center;
   width: 120px;
   height: 40px;
-  font-family: "Microsoft JhengHei UI", sans-serif;
-  font-size: 15px;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-size: 17px;
   line-height: 40px;
   float: right;
   color: rgb(54, 31, 0);
@@ -292,8 +293,13 @@ h2{
   color: #fff;
 }
 
-.loginBody .menu a{
+.loginBody .menu li a{
   color: #fff;
+  border-color: rgba(255, 255, 255, 0.63);
+}
+
+.loginBody .menu li a:hover{
+  background-color: rgba(255, 255, 255, 0.253);
 }
 
 .login{
@@ -316,9 +322,9 @@ h2{
   padding: 10px;
   border-radius: 5px;
   border: none;
-  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
   font-size: 18px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .login input[type="password"]{
@@ -330,7 +336,7 @@ h2{
   border-radius: 5px;
   border: none;
   font-size: 18px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .login input[type="button"]{
@@ -339,15 +345,15 @@ h2{
   width: 100px;
   height: 30px;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(136, 104, 74);
   border: 0;
-  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
   font-size: 18px;
-  color: rgb(54, 31, 0);
+  color: rgba(255, 255, 255, 0.658);
 }
 
 .login input[type="button"]:hover{
-  background-color: rgba(180, 180, 180, 0.438);
+  background-color: rgba(136, 104, 74, 0.87);
 }
 
 .signupBody{
@@ -364,8 +370,13 @@ h2{
   color: #fff;
 }
 
-.signupBody .menu a{
+.signupBody .menu li a{
   color: #fff;
+  border-color: rgba(255, 255, 255, 0.63);
+}
+
+.signupBody .menu li a:hover{
+  background-color: rgba(255, 255, 255, 0.253);
 }
 
 .signup{
@@ -388,7 +399,7 @@ h2{
   padding: 10px;
   border-radius: 5px;
   border: none;
-  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
   font-size: 18px;
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -411,22 +422,22 @@ h2{
   width: 100px;
   height: 30px;
   border-radius: 5px;
-  background-color: rgba(179, 179, 179, 0.322);
+  background-color: rgb(136, 104, 74);
   border: 0;
-  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
   font-size: 18px;
-  color: rgb(54, 31, 0);
+  color: rgba(255, 255, 255, 0.658);
 }
 
 .signup input[type="button"]:hover{
-  background-color: rgba(180, 180, 180, 0.438);
+  background-color: rgba(136, 104, 74, 0.87);
 }
 
 .favoriteList{
   width: 745px;
   margin: 0 auto;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 25px;
 }
 
@@ -439,7 +450,7 @@ h2{
 
 .favoriteDate{
   color: rgb(133, 133, 133);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .deleteFavorite{
@@ -462,7 +473,7 @@ h2{
   padding: 10px;
   border-radius: 5px;
   border: 1px rgb(150, 150, 150) solid;
-  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
   font-size: 18px;
 }
 
@@ -475,7 +486,7 @@ select{
   border-radius: 5px;
   border: 1px rgb(150, 150, 150) solid;
   font-size: 18px;
-  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
 }
 
 .manage input[type="submit"]{
@@ -486,7 +497,7 @@ select{
   border-radius: 5px;
   background-color: rgba(179, 179, 179, 0.322);
   border: 0;
-  font-family: "Microsoft JhengHei UI", sans-serif;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
   font-size: 18px;
   color: rgb(54, 31, 0);
 }
