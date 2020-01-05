@@ -65,7 +65,7 @@ table {
 body {
   margin: 0 auto;
   font-size: 18px;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
   color: rgb(54, 31, 0);
 }
 
@@ -95,7 +95,6 @@ h2{
   height: 45px;
   background-color: WhiteSmoke;
   z-index: 100;
-  /* 顏色待改 */
 }
 
 .header form{
@@ -113,7 +112,7 @@ h2{
   padding: 10px;
   border-radius: 5px;
   border: 1px rgb(150, 150, 150) solid;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
   font-size: 17px;
   color: rgb(54, 31, 0);
 }
@@ -226,7 +225,7 @@ h2{
   margin: 10px 10px 20px 0px;
   background-color: transparent;
   border: 0;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
   font-size: 16px;
   color: rgb(117, 90, 56, 0.8);
 }
@@ -270,14 +269,14 @@ h2{
 }
 
 .productName{
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
   color: rgb(54, 31, 0);
 }
 
 .productPrice{
   margin-top: 20px;
-  color: lightpink;
+  color: lightcoral;
   font-size: 30px;
   text-align: center;
 }
@@ -286,7 +285,7 @@ h2{
   text-align: center;
   width: 120px;
   height: 40px;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
   font-size: 17px;
   line-height: 40px;
   float: right;
@@ -342,7 +341,7 @@ h2{
   padding: 10px;
   border-radius: 5px;
   border: none;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
   font-size: 18px;
   background-color: rgba(255, 255, 255, 0.15);
 }
@@ -367,7 +366,7 @@ h2{
   border-radius: 5px;
   background-color: rgb(136, 104, 74);
   border: 0;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.658);
 }
@@ -419,7 +418,7 @@ h2{
   padding: 10px;
   border-radius: 5px;
   border: none;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
   font-size: 18px;
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -444,7 +443,7 @@ h2{
   border-radius: 5px;
   background-color: rgb(136, 104, 74);
   border: 0;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.658);
 }
@@ -493,7 +492,7 @@ h2{
   padding: 10px;
   border-radius: 5px;
   border: 1px rgb(150, 150, 150) solid;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
   font-size: 18px;
 }
 
@@ -506,7 +505,7 @@ select{
   border-radius: 5px;
   border: 1px rgb(150, 150, 150) solid;
   font-size: 18px;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
 }
 
 .manage input[type="submit"]{
@@ -517,7 +516,7 @@ select{
   border-radius: 5px;
   background-color: rgba(179, 179, 179, 0.322);
   border: 0;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-family: "Cormorant Infant", "cwTeXFangSong", sans-serif;
   font-size: 18px;
   color: rgb(54, 31, 0);
 }
