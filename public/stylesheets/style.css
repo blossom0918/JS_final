@@ -525,3 +525,8 @@ select{
   background-color: rgba(180, 180, 180, 0.438);
 }
 
+.cycle-slideshow{
+  width: 93%;
+  margin: 0 auto;
+  z-index: 0;
+}
