@@ -3,9 +3,11 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
     <link href="https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://malsup.github.io/jquery.cycle.all.js"></script>
   </head>
   <body>
     <div class="header">
@@ -34,11 +36,13 @@
     </div>
     <div class="clear"></div>
     <div class="content">
-      <div class="sortButton">
-        <a href="/result?order=price&d=desc">價格排序高至低</a>
-        <a href="/result?order=price&d=asc">價格排序低至高</a>
-        <a href="/result?order=name&d=asc">商品名稱排序</a>
-      </div>     
+      <div class="ads">
+        <img src="https://s4.lativ.com.tw/i/ProductShow/43446_1P330UP_1180X557_200102_TW.jpg">
+        <img src="https://s4.lativ.com.tw/i/ProductShow/43476_43494_43477_43495_soft_1180X557_200103_TW.jpg">
+        <img src="https://s1.lativ.com.tw/i/ProductShow/44256_down_1180X557_200102_TW.jpg">
+      </div>
+      <a href="#" class="next"><img src="/img/next.png" alt=""></a>
+      <a href="#" class="prev"><img src="/img/prev.png" alt=""></a>
       <ul class="productType">
         <li><a href="/result?type=shirt">上衣<img src="/img/shirt.png"></a></li>
         <li><a href="/result?type=pants">褲子<img src="/img/pants.png"></a></li>
@@ -46,6 +50,11 @@
         <li><a href="/result?type=coat">外套<img src="/img/coat.png"></a></li>
         <li><a href="/result?type=shoes">鞋子<img src="/img/shoes.png"></a></li>
       </ul>
+      <div class="sortButton">
+        <a href="/result?order=price&d=desc">價格排序高至低</a>
+        <a href="/result?order=price&d=asc">價格排序低至高</a>
+        <a href="/result?order=name&d=asc">商品名稱排序</a>
+      </div>
       <ul class="productList">
         <% for(var i = 0; i < data.length; i++){ %>
           <li>
@@ -82,6 +91,15 @@
     }else{
       $(".menuManage").hide();
     }
+
+    $('.ads').cycle({ 
+      fx:'scrollLeft', 
+      sync: 0, 
+      delay: -2000,
+      next: '.next', 
+      prev: '.prev',
+      pause: 1 
+    });
   });
 
   $(".addFavoriteHeart").click(function (e) {

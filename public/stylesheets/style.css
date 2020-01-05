@@ -94,6 +94,7 @@ h2{
   width: 98%;
   height: 45px;
   background-color: WhiteSmoke;
+  z-index: 100;
   /* 顏色待改 */
 }
 
@@ -156,27 +157,30 @@ h2{
   padding-top: 60px;
 }
 
-.sortButton{
-  float: right;
+.ads{
+  width: 95px;
+  margin: 10px auto;
 }
 
-.sortButton a{
-  text-decoration: none;
-  float: right;
-  outline: none;
-  margin: 10px 10px 20px 0px;
-  background-color: transparent;
-  border: 0;
-  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
-  font-size: 16px;
-  color: rgb(117, 90, 56, 0.8);
+.next{
+  position: absolute;
+  z-index: 50;
+  margin-top: -330px;
+  margin-left: 1150px;
+}
+
+.prev{
+  position: absolute;
+  z-index: 50;
+  margin-top: -330px;
+  margin-left: 80px;
 }
 
 .productType{
   width: 15%;
   line-height: 35px;
   float: left;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: 25px;
   margin-right: 10px;
 }
@@ -207,8 +211,24 @@ h2{
 }
 
 .productList{
-  width: 81%;
+  width: 81%;;
   float: left;
+}
+
+.sortButton{
+  float: right;
+}
+
+.sortButton a{
+  text-decoration: none;
+  float: right;
+  outline: none;
+  margin: 10px 10px 20px 0px;
+  background-color: transparent;
+  border: 0;
+  font-family: "Open Sans", "cwTeXFangSong", sans-serif;
+  font-size: 16px;
+  color: rgb(117, 90, 56, 0.8);
 }
 
 .productList li{
