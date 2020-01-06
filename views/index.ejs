@@ -82,7 +82,7 @@
         <% } %>
       </ul>
     </div>
-    <div class="clear"></div>
+    <button id="backTop" class="toTop"></button>
   </body>
 </html>
 <script type="text/javascript">
@@ -127,5 +127,19 @@
         alert("新增失敗:" + response.result);
       }
     }
+  });
+
+  $(function () {
+    $('#backTop').click(function () {
+      $('html,body').animate({ scrollTop: 0 }, 333);
+    });
+
+    $(window).scroll(function () {
+      if($(this).scrollTop() > 300){
+        $('#backTop').fadeIn(222);
+      }else{
+        $('#backTop').stop().fadeOut(222);
+      }
+    }).scroll();
   });
 </script>

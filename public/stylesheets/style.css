@@ -481,7 +481,7 @@ h2{
 .manage{
   width: 100%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 70px;
 }
 
 .manage input[type="text"]{
@@ -529,4 +529,44 @@ select{
   width: 93%;
   margin: 0 auto;
   z-index: 0;
+}
+
+.toTop {
+  z-index: 5;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 33%;
+  opacity: 0.6;
+  background: dimgray;
+  cursor: pointer;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: none;
+}
+
+.toTop::before, .toTop::after {
+  width: 18px;
+  height: 5px;
+  border-radius: 3px;
+  background: aliceblue;
+  position: absolute;
+  content: "";
+}
+
+.toTop::before {
+  transform: rotate(-45deg) translate(0, -50%);
+  left: 0.5rem;
+}
+
+.toTop::after {
+  transform: rotate(45deg) translate(0, -50%);
+  right: 0.5rem;
+}
+
+.toTop:focus {
+  outline: none;
 }
