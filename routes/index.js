@@ -45,24 +45,13 @@ router.get('/result', function(req, res, next) {
   var productList = [];
   var productId = [];
   if(req.query.type!=undefined){
-    if(req.query.order!=undefined && req.query.d!=undefined){
-      docRef.where("type","==",req.query.type).orderBy(req.query.order,req.query.d).get()
-      .then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          productList.push(doc.data());
-          productId.push(doc.id);
-        });
-        res.render('index', { title: '首頁', data: productList, id: productId,  islogin: islogin, ismanager: ismanager });
-      })
-    }else{
-      docRef.where("type","==",req.query.type).get().then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          productList.push(doc.data());
-          productId.push(doc.id);
-        });
-        res.render('index', { title: '首頁', data: productList, id: productId,  islogin: islogin, ismanager: ismanager });
-      })
-    }
+    docRef.where("type","==",req.query.type).get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        productList.push(doc.data());
+        productId.push(doc.id);
+      });
+      res.render('index', { title: '首頁', data: productList, id: productId,  islogin: islogin, ismanager: ismanager });
+    })
   }else if(req.query.order!=undefined && req.query.d!=undefined){
     docRef.orderBy(req.query.order,req.query.d).get().then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
