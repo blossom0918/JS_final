@@ -11,7 +11,7 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.17.0",
-    "firebase-admin": "^8.8.0",
+    "firebase-admin": "^11.4.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "nedb-session-store": "^1.1.2",
